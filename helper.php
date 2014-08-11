@@ -7,7 +7,12 @@
 			//Defaults to my username if none is provided (yet)
 			$username = $params->get("username", "aapis");
 			$auth = new GithubAPICredentials();
-			$url = sprintf("https://api.github.com/users/%s?client_id=%s&client_secret=%s", $username, $auth->id, $auth->secret);
+
+			if($auth->id != "" || $auth->secret != ""){
+				$url = sprintf("https://api.github.com/users/%s?client_id=%s&client_secret=%s", $username, $auth->id, $auth->secret);
+			}else {
+				$url = sprintf("https://api.github.com/users/%s?access_token=%s", $username, $auth->token);
+			}
 
 			$curl = curl_init();
 			curl_setopt_array($curl, array(
