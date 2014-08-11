@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.3"
+	client="site"
+	method="upgrade">
+	<name>mod_sample</name>
+	<author>Free Advertising</author>
+	<creationDate>August 2014</creationDate>
+	<copyright>Copyright (C) 2014 Free Advertising. All rights reserved.</copyright>
+	<authorEmail>ryan@wearefree.ca</authorEmail>
+	<authorUrl>www.wearefree.ca</authorUrl>
+	<version>1.0.0</version>
+	<description>A sample Joomla 3.x module - builds a small Github profile widget of the requested user.</description>
+	<files>
+		<filename module="mod_related_items">mod_sample.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>		
+		<filename>mod_sample.xml</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="username"
+					type="text"
+					label="Github Username"
+					description="Name of the Github user you'd like to build a profile of.">
+				</field>
+			</fieldset>
+			<fieldset
+				name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="textarea" rows="3"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="owncache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
